@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/answer.dart';
 
 import './question.dart';
 
@@ -23,8 +24,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      'What\'s your favorite color?',
-      'What\'s your favorite animal',
+      {
+        'questionText': 'What\'s your favorite color?',
+        'answer': ['Black', 'red', 'green', 'white'],
+      },
+      {
+        'questionText': 'What\'s your favorite animal',
+        'answer': ['Lion', 'Snake', 'Elephant', 'Monkey']
+      },
+      {
+        'questionText': 'Who is the best?',
+        'answer': ['Niko', 'Lipponen', 'Niko', 'Lipponen']
+      },
     ];
     return MaterialApp(
       home: Scaffold(
@@ -36,18 +47,9 @@ class _MyAppState extends State<MyApp> {
             Question(
               questions[_questionIndex],
             ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text('Answer 1'),
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text('Answer 2'),
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text('Answer 3'),
-            ),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
       ),
